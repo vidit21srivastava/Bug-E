@@ -64,7 +64,10 @@ defmodule ToyRobot do
   def stop(_robot, goal_x, goal_y, _cli_proc_name) when goal_x < 1 or goal_y < :a or goal_x > @table_top_x or goal_y > @table_top_y do
     {:failure, "Invalid STOP position"}
   end
-
+  
+  def start() do
+    {:ok, %ToyRobot.Position{x: 1, y: :a, facing: :facing}}
+  end
   @doc """
   Provide STOP position to the robot as given location of (x, y) and plan the path from START to STOP.
   Passing the CLI Server process name that will be used to send robot's current status after each action is taken.
